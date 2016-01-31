@@ -1,3 +1,19 @@
 .grid-input{
     margin: 30px;
 }
+
+.grid{
+    width: 500px;
+    margin-left: 50px;
+}
+
+.alive{
+    background-color: black;
+}
+
+.dead{
+    background-color: white;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}

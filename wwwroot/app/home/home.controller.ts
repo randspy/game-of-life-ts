@@ -9,22 +9,22 @@ module GameOfLife.Home {
         public gridSize:number;
         public cells:string[];
 
-        constructor() {
-        }
-
-
         public calculateGrid() {
             this.cells = [];
 
             for (var idx = 0; idx < this.gridSize; idx++) {
                 for (var idy = 0; idy < this.gridSize; idy++) {
-                    this.cells.push('1');
+                    this.cells.push('0');
                 }
             }
         };
 
-        public getGridSize(){
+        public getGridSize() {
             return this.gridSize ? this.gridSize : 0;
+        }
+
+        public gridElementClicked(index:number) {
+            this.cells[index] = this.cells[index] === '1' ? '0' : '1';
         }
     }
 
