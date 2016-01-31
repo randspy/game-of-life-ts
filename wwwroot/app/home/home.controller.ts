@@ -6,10 +6,25 @@ module GameOfLife.Home {
     export class HomeController {
         static $inject = ['moment'];
 
-        public msg : string;
+        public gridSize:number;
+        public cells:string[];
 
-        constructor(moment : moment.MomentStatic) {
-           this.msg = 'Welcome home to GameOfLife! It is: ' + moment().format('LLLL');
+        constructor() {
+        }
+
+
+        public calculateGrid() {
+            this.cells = [];
+
+            for (var idx = 0; idx < this.gridSize; idx++) {
+                for (var idy = 0; idy < this.gridSize; idy++) {
+                    this.cells.push('1');
+                }
+            }
+        };
+
+        public getGridSize(){
+            return this.gridSize ? this.gridSize : 0;
         }
     }
 

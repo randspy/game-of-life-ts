@@ -1,3 +1,9 @@
-<h1>Home</h1>
+<md-input-container class="grid-input">
+    <label>Grid size</label>
+    <input type="text" ng-model="vm.gridSize" ng-change="vm.calculateGrid()" required>
+</md-input-container>
 
-<p>PPPP</p>
+
+<md-grid-list md-cols="{{vm.getGridSize()}}" md-row-height="4:4">
+    <md-grid-tile ng-repeat="cell in vm.cells track by $index">{{cell}}</md-grid-tile>
+</md-grid-list>
