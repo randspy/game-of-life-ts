@@ -2,6 +2,8 @@ var args = require('yargs').argv;
 var config = require('./gulp.config')();
 var runSequence = require('run-sequence');
 
+var karma = require('karma').server;
+
 var gulp = require('gulp-help')(require('gulp'));
 var $ = require('gulp-load-plugins')({lazy: true});
 
