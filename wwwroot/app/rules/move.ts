@@ -1,7 +1,10 @@
-module GameOfLife.Rules {
+import {Board} from "./board";
 
-    class Move {
 
+export class Move {
+
+    playRound(board:Board):Board {
+        return board;
     }
 
 }
