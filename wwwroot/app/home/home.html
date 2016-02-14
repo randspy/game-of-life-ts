@@ -5,7 +5,7 @@
 
 
 <md-grid-list class="grid" md-cols="{{vm.getGridSize()}}" md-row-height="4:4">
-    <md-grid-tile ng-class="{alive: cell === '1', dead: cell === '0'}"
+    <md-grid-tile ng-class="{alive: cell.isAlive(), dead: !cell.isAlive()}"
                   ng-repeat="cell in vm.cells track by $index"
                   ng-click="vm.gridElementClicked($index)"></md-grid-tile>
 </md-grid-list>

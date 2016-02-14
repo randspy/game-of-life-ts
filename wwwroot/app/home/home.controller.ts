@@ -1,3 +1,8 @@
+import {AliveCell, Cell, DeadCell} from "../rules/cell";
+import {Move} from "../rules/move";
+import {Board} from "../rules/board";
+import {Position} from "../rules/position";
+
 module GameOfLife.Home {
     'use strict';
 
@@ -7,16 +12,14 @@ module GameOfLife.Home {
         static $inject = ['moment'];
 
         public gridSize:number;
-        public cells:string[];
+        public cells:Cell[];
+        public board:Board;
 
         public calculateGrid() {
-            this.cells = [];
 
-            for (var idx = 0; idx < this.gridSize; idx++) {
-                for (var idy = 0; idy < this.gridSize; idy++) {
-                    this.cells.push('0');
-                }
-            }
+            this.board = new Board(this.gridSize);
+
+            this.cells = this.board.getFlatten();
         };
 
         public getGridSize() {
@@ -24,7 +27,14 @@ module GameOfLife.Home {
         }
 
         public gridElementClicked(index:number) {
-            this.cells[index] = this.cells[index] === '1' ? '0' : '1';
+            if (this.board.getByIndex(index).isAlive()){
+                this.board.setByIndex(index, new DeadCell());
+            }
+            else{
+                this.board.setByIndex(index, new AliveCell());
+            }
+
+            this.cells = this.board.getFlatten();
         }
     }
 
