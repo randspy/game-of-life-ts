@@ -25,4 +25,7 @@ export class Board {
         this.cells[position.idx][position.idy] = cell;
     }
 
+    getFlatten():Cell[] {
+        return [].concat.apply([], this.cells);
+    }
 }
