@@ -45,6 +45,7 @@ module.exports = function() {
             "compilerOptions": {
                 "target": "es5",
                 "removeComments": true,
+                "module": "commonjs",
                 "sourceMap": true,
                 "noImplicitAny": true,
                 "out": clientCompiledApp
